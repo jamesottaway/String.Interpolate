@@ -1,21 +1,22 @@
 ﻿using Interpolate;
-using Xunit;
+using NUnit.Framework;
 
 namespace Interpolate.Tests
 {
+    [TestFixture]
     public class LiteralFormatTests
     {
-        [Fact]
+        [Test]
         public void Literal_WithEscapedCloseBraces_CollapsesDoubleBraces() { 
             //arrange
             var literal = new LiteralFormat("hello}}world");
             //act
             string result = literal.Eval(null);
             //assert
-            Assert.Equal("hello}world", result);
+            Assert.AreEqual("hello}world", result);
         }
 
-        [Fact]
+        [Test]
         public void Literal_WithEscapedOpenBraces_CollapsesDoubleBraces()
         {
             //arrange
@@ -23,7 +24,7 @@ namespace Interpolate.Tests
             //act
             string result = literal.Eval(null);
             //assert
-            Assert.Equal("hello{world", result);
+            Assert.AreEqual("hello{world", result);
         }
     }
 }

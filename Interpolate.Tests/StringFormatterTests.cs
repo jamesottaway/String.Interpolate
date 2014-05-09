@@ -1,9 +1,10 @@
 ﻿using System;
 using Interpolate;
-using Xunit;
+using NUnit.Framework;
 
 namespace Interpolate.Tests
 {
+    [TestFixture]
     public class StringFormatterTests
     {
         static string Format(string format, object o) {
@@ -17,7 +18,7 @@ namespace Interpolate.Tests
             //return format.HaackFormat(o);
         }
 
-        [Fact]
+        [Test]
         public void StringFormat_WithMultipleExpressions_FormatsThemAll()
         {
             //arrange
@@ -27,10 +28,10 @@ namespace Interpolate.Tests
             string result = Format("{foo} {foo} {bar}{baz}", o);
 
             //assert
-            Assert.Equal("123.45 123.45 42hello", result);
+            Assert.AreEqual("123.45 123.45 42hello", result);
         }
 
-        [Fact]
+        [Test]
         public void StringFormat_WithDoubleEscapedCurlyBraces_DoesNotFormatString()
         {
             //arrange
@@ -40,10 +41,10 @@ namespace Interpolate.Tests
             string result = Format("{{{{foo}}}}", o);
 
             //assert
-            Assert.Equal("{{foo}}", result);
+            Assert.AreEqual("{{foo}}", result);
         }
 
-        [Fact]
+        [Test]
         public void StringFormat_WithFormatSurroundedByDoubleEscapedBraces_FormatsString()
         {
             //arrange
@@ -53,10 +54,10 @@ namespace Interpolate.Tests
             string result = Format("{{{{{foo}}}}}", o);
 
             //assert
-            Assert.Equal("{{123.45}}", result);
+            Assert.AreEqual("{{123.45}}", result);
         }
 
-        [Fact]
+        [Test]
         public void Format_WithEscapeSequence_EscapesInnerCurlyBraces()
         {
             var o = new { foo = 123.45 };
@@ -65,10 +66,10 @@ namespace Interpolate.Tests
             string result = Format("{{{foo}}}", o);
 
             //assert
-            Assert.Equal("{123.45}", result);
+            Assert.AreEqual("{123.45}", result);
         }
 
-        [Fact]
+        [Test]
         public void Format_WithEmptyString_ReturnsEmptyString()
         {
             var o = new { foo = 123.45 };
@@ -77,10 +78,10 @@ namespace Interpolate.Tests
             string result = Format(string.Empty, o);
 
             //assert
-            Assert.Equal(string.Empty, result);
+            Assert.AreEqual(string.Empty, result);
         }
 
-        [Fact]
+        [Test]
         public void Format_WithNoFormats_ReturnsFormatStringAsIs()
         {
             var o = new { foo = 123.45 };
@@ -89,10 +90,10 @@ namespace Interpolate.Tests
             string result = Format("a b c", o);
 
             //assert
-            Assert.Equal("a b c", result);
+            Assert.AreEqual("a b c", result);
         }
 
-        [Fact]
+        [Test]
         public void Format_WithFormatType_ReturnsFormattedExpression()
         {
             var o = new { foo = 123.45 };
@@ -101,10 +102,10 @@ namespace Interpolate.Tests
             string result = Format("{foo:#.#}", o);
 
             //assert
-            Assert.Equal("123.5", result);
+            Assert.AreEqual("123.5", result);
         }
 
-        [Fact]
+        [Test]
         public void Format_WithSubProperty_ReturnsValueOfSubProperty()
         {
             var o = new { foo = new { bar = 123.45 } };
@@ -113,10 +114,10 @@ namespace Interpolate.Tests
             string result = Format("{foo.bar:#.#}ms", o);
 
             //assert
-            Assert.Equal("123.5ms", result);
+            Assert.AreEqual("123.5ms", result);
         }
 
-        [Fact]
+        [Test]
         public void Format_WithFormatNameNotInObject_ThrowsFormatException()
         {
             //arrange
@@ -126,7 +127,7 @@ namespace Interpolate.Tests
             Assert.Throws<FormatException>(() => Format("{bar}", o));
         }
 
-        [Fact]
+        [Test]
         public void Format_WithNoEndFormatBrace_ThrowsFormatException()
         {
             //arrange
@@ -136,7 +137,7 @@ namespace Interpolate.Tests
             Assert.Throws<FormatException>(() => Format("{bar", o));
         }
 
-        [Fact]
+        [Test]
         public void Format_WithEscapedEndFormatBrace_ThrowsFormatException()
         {
             //arrange
@@ -147,7 +148,7 @@ namespace Interpolate.Tests
             Assert.Throws<FormatException>(() => Format("{foo}}", o));
         }
 
-        [Fact]
+        [Test]
         public void Format_WithDoubleEscapedEndFormatBrace_ThrowsFormatException()
         {
             //arrange
@@ -157,7 +158,7 @@ namespace Interpolate.Tests
             Assert.Throws<FormatException>(() => Format("{foo}}}}bar", o));
         }
 
-        [Fact]
+        [Test]
         public void Format_WithDoubleEscapedEndFormatBraceWhichTerminatesString_ThrowsFormatException()
         {
             //arrange
@@ -167,7 +168,7 @@ namespace Interpolate.Tests
             Assert.Throws<FormatException>(() => Format("{foo}}}}", o));
         }
 
-        [Fact]
+        [Test]
         public void Format_WithEndBraceFollowedByEscapedEndFormatBraceWhichTerminatesString_FormatsCorrectly()
         {
             var o = new { foo = 123.45 };
@@ -176,10 +177,10 @@ namespace Interpolate.Tests
             string result = Format("{foo}}}", o);
 
             //assert
-            Assert.Equal("123.45}", result);
+            Assert.AreEqual("123.45}", result);
         }
 
-        [Fact]
+        [Test]
         public void Format_WithEndBraceFollowedByEscapedEndFormatBrace_FormatsCorrectly()
         {
             var o = new { foo = 123.45 };
@@ -188,10 +189,10 @@ namespace Interpolate.Tests
             string result = Format("{foo}}}bar", o);
             
             //assert
-            Assert.Equal("123.45}bar", result);
+            Assert.AreEqual("123.45}bar", result);
         }
 
-        [Fact]
+        [Test]
         public void Format_WithEndBraceFollowedByDoubleEscapedEndFormatBrace_FormatsCorrectly()
         {
             var o = new { foo = 123.45 };
@@ -200,10 +201,10 @@ namespace Interpolate.Tests
             string result = Format("{foo}}}}}bar", o);
 
             //assert
-            Assert.Equal("123.45}}bar", result);
+            Assert.AreEqual("123.45}}bar", result);
         }
 
-        [Fact]
+        [Test]
         public void Format_WithNullFormatString_ThrowsArgumentNullException()
         {
             //arrange, act, assert
