@@ -5,17 +5,10 @@ using NUnit.Framework;
 namespace Interpolate.Tests
 {
     [TestFixture]
-    public class StringFormatterTests
+    public class HenriFormatterTests
     {
         static string Format(string format, object o) {
-            // You can see how the other methods handle these unit tests 
-            // by uncommenting the one you want to test.
-
-            //return o.HanselFormat(format);
-            //return format.OskarFormat(o);
-            return format.JamesFormat(o);
-            //return format.HenriFormat(o);
-            //return format.HaackFormat(o);
+            return format.HenriFormat(o);
         }
 
         [Test]
