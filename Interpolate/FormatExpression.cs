@@ -2,7 +2,7 @@
 using System.Web;
 using System.Web.UI;
 
-namespace StringLib
+namespace Interpolate
 {
 public class FormatExpression : ITextExpression
 {

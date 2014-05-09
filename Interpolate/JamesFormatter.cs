@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Web.UI;
 
-namespace StringLib
+namespace Interpolate
 {
     public static class JamesFormatter
     {

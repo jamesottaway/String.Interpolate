@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace StringLib
+namespace Interpolate
 {
     /// <summary>
     /// Copied from http://mo.notono.us/2008/07/c-stringinject-format-strings-by-key.html

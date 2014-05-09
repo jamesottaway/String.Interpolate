@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StringLib
+namespace Interpolate
 {
 public static class HaackFormatter
 {

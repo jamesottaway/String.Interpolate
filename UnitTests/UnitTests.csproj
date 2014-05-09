@@ -77,9 +77,9 @@
     <Compile Include="StringFormatterTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StringLib\StringLib.csproj">
+    <ProjectReference Include="..\Interpolate\Interpolate.csproj">
       <Project>{5A0ABA6B-CDEA-4B55-8BAF-D511A3BFCA40}</Project>
-      <Name>StringLib</Name>
+      <Name>Interpolate</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

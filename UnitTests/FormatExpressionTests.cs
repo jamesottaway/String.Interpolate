@@ -1,4 +1,4 @@
-﻿using StringLib;
+﻿using Interpolate;
 using Xunit;
 
 namespace UnitTests

@@ -6,7 +6,7 @@ using System.IO;
 using System.Web;
 using System.Web.UI;
 
-namespace StringLib
+namespace Interpolate
 {
     public static class HenriFormatter
     {

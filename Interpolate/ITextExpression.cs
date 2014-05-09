@@ -1,4 +1,4 @@
-﻿namespace StringLib
+﻿namespace Interpolate
 {
     public interface ITextExpression
     {
