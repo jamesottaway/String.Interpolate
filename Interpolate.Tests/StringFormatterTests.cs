@@ -2,7 +2,7 @@
 using Interpolate;
 using Xunit;
 
-namespace UnitTests
+namespace Interpolate.Tests
 {
     public class StringFormatterTests
     {
