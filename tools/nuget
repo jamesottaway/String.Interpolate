@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$MONO_HOME/bin/mono" $MONO_OPTIONS "$INTERPOLATE_HOME/.nuget/NuGet.exe" "$@"

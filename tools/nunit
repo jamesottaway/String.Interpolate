@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$MONO_HOME/bin/mono" $MONO_OPTIONS "$INTERPOLATE_HOME/packages/NUnit.Runners.2.6.3/tools/nunit-console.exe" "$@"
