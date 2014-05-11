@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>String.Interpolate</id>
+    <version>0.0.1</version>
+    <title>String.Interpolate</title>
+    <authors>James Ottaway</authors>
+    <owners>James Ottaway</owners>
+    <licenseUrl>https://github.com/jamesottaway/String.Interpolateblob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/jamesottaway/String.Interpolate</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Interpolate your .NET strings</description>
+    <summary>Interpolate your .NET strings</summary>
+    <copyright>Copyright 2014</copyright>
+  </metadata>
+  <files>
+    <file src="bin/Release/*.dll" target="lib/net40" />
+  </files>
+</package>
